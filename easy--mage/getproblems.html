@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<style>
+    a.button 
+    {
+        -webkit-appearance: button;
+        -moz-appearance: button;
+        appearance: button;
+        text-decoration: none;
+        color: initial;
+        min-width: 50px;
+        text-align: center;
+    }
+</style>
+
+<style>
+#textform > form
+{
+  border: 1px solid #d4d6d8;
+  border-radius: 5px;
+  width:30%;
+  min-width:20em;
+  margin:auto; /*设置外边距*/
+  padding:1em 3em;
+}
+
+#textform label
+{
+  position: static;
+  font-weight: 600;
+  line-height:1.0em;
+}
+#textform .informationform
+{
+  width: 20%;
+  margin-right: 5px;
+  background-color: #becbd8;
+  min-height: 20px;
+  padding: 6px 8px;
+  line-height: 20px;
+  color: #24292e;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #92b5d8;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
+}
+#textform .informationform:focus/*获取焦点时的样式*/
+{
+  background-color: #fff;
+  border-color: #2188ff;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(27,31,35,0.075), 0 0 0 0.2em rgba(3,102,214,0.3);
+}
+
+</style>
+
+
+
+<script src={{url_for('static', filename = 'js/jquery-3.3.1.min.js')}}></script>
+
+<script>
+    function StandardPost(url, key, data)  //往指定url post data
+    {  
+        var form1 = document.createElement("form");  
+        form1.id = "form1";  
+        form1.name = "form1";  
+  
+        // 添加到 body 中  
+        document.body.appendChild(form1);  
+  
+        // 创建一个输入  
+        var input = document.createElement("input");  
+        // 设置相应参数  
+        input.type = "text";  
+        input.name = key;  
+        input.value = data;  
+  
+        // 将该输入框插入到 form 中  
+        form1.appendChild(input);  
+  
+        // form 的提交方式  
+        form1.method = "POST";  
+        // form 提交路径  
+        form1.action = url;  
+  
+        // 对该 form 执行提交  
+        form1.submit();  
+        // 删除该 form  
+        document.body.removeChild(form1);   
+    }  
+
+
+    function postsomething(data)
+    {
+        form = document.getElementById("class_id").value;
+        name = document.getElementById("studentname").value;
+        stdclass = document.getElementById("studentclass").value;
+        data = name + "*" + form + "#" + data+"^"+stdclass;
+        StandardPost("/received", "key" ,data);
+    }
+</script>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>华中农业大学研究生复试选题系统</title>
+        <h2 style="text-align:center">考试系统</h2>
+        <h2 style="text-align:center">面试选题编号</h2>
+    </head>
+    <body background={{url_for('static', filename = 'back1.jpg')}} style ="background-repeat:no-repeat; height:100%; width:100%">
+            <div id="textform">
+                    <label>考场号</label>
+                    <input class="informationform" id="class_id"  type="text" name="username" maxlength="15" > 
+                   <br>
+                   <br>
+                   <label>考生姓名</label>
+                   <input class="informationform" id="studentname"  type="text" name="studentname" maxlength="15" > 
+                   <br>
+                   <br>
+                   <label>考生类别</label>
+                   <input  class="informationform" id="studentclass"  type="text" name="studentclass" > 
+                   <br>
+                   <label>0为学硕，1为专硕</label>
+                </div>
+        <div id="buttons" style = "text-align:center">
+            <a class="button"   onclick="postsomething('1')" id="1">1</a>
+            <a class="button"   onclick="postsomething('2')" id="2">2</a>
+            <a class="button"   onclick="postsomething('3')" id="3">3</a>
+            <a class="button"   onclick="postsomething('4')" id="4">4</a>
+            <a class="button"   onclick="postsomething('5')" id="5">5</a>
+            <a class="button"   onclick="postsomething('6')" id="6">6</a>
+            <a class="button"   onclick="postsomething('7')" id="7">7</a>
+            <a class="button"   onclick="postsomething('8')" id="8">8</a>
+            <a class="button"   onclick="postsomething('9')" id="9">9</a>
+            <a class="button"   onclick="postsomething('10')" id="10">10</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('11')" id="11">11</a>
+            <a class="button"   onclick="postsomething('12')" id="12">12</a>
+            <a class="button"   onclick="postsomething('13')" id="13">13</a>
+            <a class="button"   onclick="postsomething('14')" id="14">14</a>
+            <a class="button"   onclick="postsomething('15')" id="15">15</a>
+            <a class="button"   onclick="postsomething('16')" id="16">16</a>
+            <a class="button"   onclick="postsomething('17')" id="17">17</a>
+            <a class="button"   onclick="postsomething('18')" id="18">18</a>
+            <a class="button"   onclick="postsomething('19')" id="19">19</a>
+            <a class="button"   onclick="postsomething('20')" id="20">20</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('21')" id="21">21</a>
+            <a class="button"   onclick="postsomething('22')" id="22">22</a>
+            <a class="button"   onclick="postsomething('23')" id="23">23</a>
+            <a class="button"   onclick="postsomething('24')" id="24">24</a>
+            <a class="button"   onclick="postsomething('25')" id="25">25</a>
+            <a class="button"   onclick="postsomething('26')" id="26">26</a>
+            <a class="button"   onclick="postsomething('27')" id="27">27</a>
+            <a class="button"   onclick="postsomething('28')" id="28">28</a>
+            <a class="button"   onclick="postsomething('29')" id="29">29</a>
+            <a class="button"   onclick="postsomething('30')" id="30">30</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('31')" id="31">31</a>
+            <a class="button"   onclick="postsomething('32')" id="32">32</a>
+            <a class="button"   onclick="postsomething('33')" id="33">33</a>
+            <a class="button"   onclick="postsomething('34')" id="34">34</a>
+            <a class="button"   onclick="postsomething('35')" id="35">35</a>
+            <a class="button"   onclick="postsomething('36')" id="36">36</a>
+            <a class="button"   onclick="postsomething('37')" id="37">37</a>
+            <a class="button"   onclick="postsomething('38')" id="38">38</a>
+            <a class="button"   onclick="postsomething('39')" id="39">39</a>
+            <a class="button"   onclick="postsomething('40')" id="40">40</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('41')" id="41">41</a>
+            <a class="button"   onclick="postsomething('42')" id="42">42</a>
+            <a class="button"   onclick="postsomething('43')" id="43">43</a>
+            <a class="button"   onclick="postsomething('44')" id="44">44</a>
+            <a class="button"   onclick="postsomething('45')" id="45">45</a>
+            <a class="button"   onclick="postsomething('46')" id="46">46</a>
+            <a class="button"   onclick="postsomething('47')" id="47">47</a>
+            <a class="button"   onclick="postsomething('48')" id="48">48</a>
+            <a class="button"   onclick="postsomething('49')" id="49">49</a>
+            <a class="button"   onclick="postsomething('50')" id="50">50</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('51')" id="51">51</a>
+            <a class="button"   onclick="postsomething('52')" id="52">52</a>
+            <a class="button"   onclick="postsomething('53')" id="53">53</a>
+            <a class="button"   onclick="postsomething('54')" id="54">54</a>
+            <a class="button"   onclick="postsomething('55')" id="55">55</a>
+            <a class="button"   onclick="postsomething('56')" id="56">56</a>
+            <a class="button"   onclick="postsomething('57')" id="57">57</a>
+            <a class="button"   onclick="postsomething('58')" id="58">58</a>
+            <a class="button"   onclick="postsomething('59')" id="59">59</a>
+            <a class="button"   onclick="postsomething('60')" id="60">60</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('61')" id="61">61</a>
+            <a class="button"   onclick="postsomething('62')" id="62">62</a>
+            <a class="button"   onclick="postsomething('63')" id="63">63</a>
+            <a class="button"   onclick="postsomething('64')" id="64">64</a>
+            <a class="button"   onclick="postsomething('65')" id="65">65</a>
+            <a class="button"   onclick="postsomething('66')" id="66">66</a>
+            <a class="button"   onclick="postsomething('67')" id="67">67</a>
+            <a class="button"   onclick="postsomething('68')" id="68">68</a>
+            <a class="button"   onclick="postsomething('69')" id="69">69</a>
+            <a class="button"   onclick="postsomething('70')" id="70">70</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('71')" id="71">71</a>
+            <a class="button"   onclick="postsomething('72')" id="72">72</a>
+            <a class="button"   onclick="postsomething('73')" id="73">73</a>
+            <a class="button"   onclick="postsomething('74')" id="74">74</a>
+            <a class="button"   onclick="postsomething('75')" id="75">75</a>
+            <a class="button"   onclick="postsomething('76')" id="76">76</a>
+            <a class="button"   onclick="postsomething('77')" id="77">77</a>
+            <a class="button"   onclick="postsomething('78')" id="78">78</a>
+            <a class="button"   onclick="postsomething('79')" id="79">79</a>
+            <a class="button"   onclick="postsomething('80')" id="80">80</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('81')" id="81">81</a>
+            <a class="button"   onclick="postsomething('82')" id="82">82</a>
+            <a class="button"   onclick="postsomething('83')" id="83">83</a>
+            <a class="button"   onclick="postsomething('84')" id="84">84</a>
+            <a class="button"   onclick="postsomething('85')" id="85">85</a>
+            <a class="button"   onclick="postsomething('86')" id="86">86</a>
+            <a class="button"   onclick="postsomething('87')" id="87">87</a>
+            <a class="button"   onclick="postsomething('88')" id="88">88</a>
+            <a class="button"   onclick="postsomething('89')" id="89">89</a>
+            <a class="button"   onclick="postsomething('90')" id="90">90</a>
+            
+            <br>
+            
+            <a class="button"   onclick="postsomething('91')" id="91">91</a>
+            <a class="button"   onclick="postsomething('92')" id="92">92</a>
+            <a class="button"   onclick="postsomething('93')" id="93">93</a>
+            <a class="button"   onclick="postsomething('94')" id="94">94</a>
+            <a class="button"   onclick="postsomething('95')" id="95">95</a>
+            <a class="button"   onclick="postsomething('96')" id="96">96</a>
+            <a class="button"   onclick="postsomething('97')" id="97">97</a>
+            <a class="button"   onclick="postsomething('98')" id="98">98</a>
+            <a class="button"   onclick="postsomething('99')" id="99">99</a>
+            <a class="button"   onclick="postsomething('100')" id="100">100</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('101')" id="101">101</a>
+            <a class="button"   onclick="postsomething('102')" id="102">102</a>
+            <a class="button"   onclick="postsomething('103')" id="103">103</a>
+            <a class="button"   onclick="postsomething('104')" id="104">104</a>
+            <a class="button"   onclick="postsomething('105')" id="105">105</a>
+            <a class="button"   onclick="postsomething('106')" id="106">106</a>
+            <a class="button"   onclick="postsomething('107')" id="107">107</a>
+            <a class="button"   onclick="postsomething('108')" id="108">108</a>
+            <a class="button"   onclick="postsomething('109')" id="109">109</a>
+            <a class="button"   onclick="postsomething('110')" id="110">110</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('111')" id="111">111</a>
+            <a class="button"   onclick="postsomething('112')" id="112">112</a>
+            <a class="button"   onclick="postsomething('113')" id="113">113</a>
+            <a class="button"   onclick="postsomething('114')" id="114">114</a>
+            <a class="button"   onclick="postsomething('115')" id="115">115</a>
+            <a class="button"   onclick="postsomething('116')" id="116">116</a>
+            <a class="button"   onclick="postsomething('117')" id="117">117</a>
+            <a class="button"   onclick="postsomething('118')" id="118">118</a>
+            <a class="button"   onclick="postsomething('119')" id="119">119</a>
+            <a class="button"   onclick="postsomething('120')" id="120">120</a>
+            
+            <br>
+            
+            <a class="button"   onclick="postsomething('121')" id="121">101</a>
+            <a class="button"   onclick="postsomething('122')" id="122">102</a>
+            <a class="button"   onclick="postsomething('123')" id="123">103</a>
+            <a class="button"   onclick="postsomething('124')" id="124">104</a>
+            <a class="button"   onclick="postsomething('125')" id="125">105</a>
+            <a class="button"   onclick="postsomething('126')" id="126">106</a>
+            <a class="button"   onclick="postsomething('127')" id="127">107</a>
+            <a class="button"   onclick="postsomething('128')" id="128">108</a>
+            <a class="button"   onclick="postsomething('129')" id="129">109</a>
+            <a class="button"   onclick="postsomething('130')" id="130">110</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('131')" id="131">131</a>
+            <a class="button"   onclick="postsomething('132')" id="132">132</a>
+            <a class="button"   onclick="postsomething('133')" id="133">133</a>
+            <a class="button"   onclick="postsomething('134')" id="134">134</a>
+            <a class="button"   onclick="postsomething('135')" id="135">135</a>
+            <a class="button"   onclick="postsomething('136')" id="136">136</a>
+            <a class="button"   onclick="postsomething('137')" id="137">137</a>
+            <a class="button"   onclick="postsomething('138')" id="138">138</a>
+            <a class="button"   onclick="postsomething('139')" id="139">139</a>
+            <a class="button"   onclick="postsomething('140')" id="140">140</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('141')" id="141">141</a>
+            <a class="button"   onclick="postsomething('142')" id="142">142</a>
+            <a class="button"   onclick="postsomething('143')" id="143">143</a>
+            <a class="button"   onclick="postsomething('144')" id="144">144</a>
+            <a class="button"   onclick="postsomething('145')" id="145">145</a>
+            <a class="button"   onclick="postsomething('146')" id="146">146</a>
+            <a class="button"   onclick="postsomething('147')" id="147">147</a>
+            <a class="button"   onclick="postsomething('148')" id="148">148</a>
+            <a class="button"   onclick="postsomething('149')" id="149">149</a>
+            <a class="button"   onclick="postsomething('150')" id="150">150</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('151')" id="151">151</a>
+            <a class="button"   onclick="postsomething('152')" id="152">152</a>
+            <a class="button"   onclick="postsomething('153')" id="153">153</a>
+            <a class="button"   onclick="postsomething('154')" id="154">154</a>
+            <a class="button"   onclick="postsomething('155')" id="155">155</a>
+            <a class="button"   onclick="postsomething('156')" id="156">156</a>
+            <a class="button"   onclick="postsomething('157')" id="157">157</a>
+            <a class="button"   onclick="postsomething('158')" id="158">158</a>
+            <a class="button"   onclick="postsomething('159')" id="159">159</a>
+            <a class="button"   onclick="postsomething('160')" id="160">160</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('161')" id="161">161</a>
+            <a class="button"   onclick="postsomething('162')" id="162">162</a>
+            <a class="button"   onclick="postsomething('163')" id="163">163</a>
+            <a class="button"   onclick="postsomething('164')" id="164">164</a>
+            <a class="button"   onclick="postsomething('165')" id="165">165</a>
+            <a class="button"   onclick="postsomething('166')" id="166">166</a>
+            <a class="button"   onclick="postsomething('167')" id="167">167</a>
+            <a class="button"   onclick="postsomething('168')" id="168">168</a>
+            <a class="button"   onclick="postsomething('169')" id="169">169</a>
+            <a class="button"   onclick="postsomething('170')" id="170">170</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('171')" id="171">171</a>
+            <a class="button"   onclick="postsomething('172')" id="172">172</a>
+            <a class="button"   onclick="postsomething('173')" id="173">173</a>
+            <a class="button"   onclick="postsomething('174')" id="174">174</a>
+            <a class="button"   onclick="postsomething('175')" id="175">175</a>
+            <a class="button"   onclick="postsomething('176')" id="176">176</a>
+            <a class="button"   onclick="postsomething('177')" id="177">177</a>
+            <a class="button"   onclick="postsomething('178')" id="178">178</a>
+            <a class="button"   onclick="postsomething('179')" id="179">179</a>
+            <a class="button"   onclick="postsomething('180')" id="180">180</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('181')" id="181">181</a>
+            <a class="button"   onclick="postsomething('182')" id="182">182</a>
+            <a class="button"   onclick="postsomething('183')" id="183">183</a>
+            <a class="button"   onclick="postsomething('184')" id="184">184</a>
+            <a class="button"   onclick="postsomething('185')" id="185">185</a>
+            <a class="button"   onclick="postsomething('186')" id="186">186</a>
+            <a class="button"   onclick="postsomething('187')" id="187">187</a>
+            <a class="button"   onclick="postsomething('188')" id="188">188</a>
+            <a class="button"   onclick="postsomething('189')" id="189">189</a>
+            <a class="button"   onclick="postsomething('190')" id="190">190</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('191')" id="191">191</a>
+            <a class="button"   onclick="postsomething('192')" id="192">192</a>
+            <a class="button"   onclick="postsomething('193')" id="193">193</a>
+            <a class="button"   onclick="postsomething('194')" id="194">194</a>
+            <a class="button"   onclick="postsomething('195')" id="195">195</a>
+            <a class="button"   onclick="postsomething('196')" id="196">196</a>
+            <a class="button"   onclick="postsomething('197')" id="197">197</a>
+            <a class="button"   onclick="postsomething('198')" id="198">198</a>
+            <a class="button"   onclick="postsomething('199')" id="199">199</a>
+            <a class="button"   onclick="postsomething('200')" id="200">200</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('201')" id="201">201</a>
+            <a class="button"   onclick="postsomething('202')" id="202">202</a>
+            <a class="button"   onclick="postsomething('203')" id="203">203</a>
+            <a class="button"   onclick="postsomething('204')" id="204">204</a>
+            <a class="button"   onclick="postsomething('205')" id="205">205</a>
+            <a class="button"   onclick="postsomething('206')" id="206">206</a>
+            <a class="button"   onclick="postsomething('207')" id="207">207</a>
+            <a class="button"   onclick="postsomething('208')" id="208">208</a>
+            <a class="button"   onclick="postsomething('209')" id="209">209</a>
+            <a class="button"   onclick="postsomething('210')" id="210">210</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('211')" id="211">211</a>
+            <a class="button"   onclick="postsomething('212')" id="212">212</a>
+            <a class="button"   onclick="postsomething('213')" id="213">213</a>
+            <a class="button"   onclick="postsomething('214')" id="214">214</a>
+            <a class="button"   onclick="postsomething('215')" id="215">215</a>
+            <a class="button"   onclick="postsomething('216')" id="216">216</a>
+            <a class="button"   onclick="postsomething('217')" id="217">217</a>
+            <a class="button"   onclick="postsomething('218')" id="218">218</a>
+            <a class="button"   onclick="postsomething('219')" id="219">219</a>
+            <a class="button"   onclick="postsomething('220')" id="220">220</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('221')" id="221">221</a>
+            <a class="button"   onclick="postsomething('222')" id="222">222</a>
+            <a class="button"   onclick="postsomething('223')" id="223">223</a>
+            <a class="button"   onclick="postsomething('224')" id="224">224</a>
+            <a class="button"   onclick="postsomething('225')" id="225">225</a>
+            <a class="button"   onclick="postsomething('226')" id="226">226</a>
+            <a class="button"   onclick="postsomething('227')" id="227">227</a>
+            <a class="button"   onclick="postsomething('228')" id="228">228</a>
+            <a class="button"   onclick="postsomething('229')" id="229">229</a>
+            <a class="button"   onclick="postsomething('230')" id="230">230</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('231')" id="231">231</a>
+            <a class="button"   onclick="postsomething('232')" id="232">232</a>
+            <a class="button"   onclick="postsomething('233')" id="233">233</a>
+            <a class="button"   onclick="postsomething('234')" id="234">234</a>
+            <a class="button"   onclick="postsomething('235')" id="235">235</a>
+            <a class="button"   onclick="postsomething('236')" id="236">236</a>
+            <a class="button"   onclick="postsomething('237')" id="237">237</a>
+            <a class="button"   onclick="postsomething('238')" id="238">238</a>
+            <a class="button"   onclick="postsomething('239')" id="239">239</a>
+            <a class="button"   onclick="postsomething('240')" id="240">240</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('241')" id="241">241</a>
+            <a class="button"   onclick="postsomething('242')" id="242">242</a>
+            <a class="button"   onclick="postsomething('243')" id="243">243</a>
+            <a class="button"   onclick="postsomething('244')" id="244">244</a>
+            <a class="button"   onclick="postsomething('245')" id="245">245</a>
+            <a class="button"   onclick="postsomething('246')" id="246">246</a>
+            <a class="button"   onclick="postsomething('247')" id="247">247</a>
+            <a class="button"   onclick="postsomething('248')" id="248">248</a>
+            <a class="button"   onclick="postsomething('249')" id="249">249</a>
+            <a class="button"   onclick="postsomething('250')" id="250">250</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('261')" id="261">261</a>
+            <a class="button"   onclick="postsomething('262')" id="262">262</a>
+            <a class="button"   onclick="postsomething('263')" id="263">263</a>
+            <a class="button"   onclick="postsomething('264')" id="264">264</a>
+            <a class="button"   onclick="postsomething('265')" id="265">265</a>
+            <a class="button"   onclick="postsomething('266')" id="266">266</a>
+            <a class="button"   onclick="postsomething('267')" id="267">267</a>
+            <a class="button"   onclick="postsomething('268')" id="268">268</a>
+            <a class="button"   onclick="postsomething('269')" id="269">269</a>
+            <a class="button"   onclick="postsomething('270')" id="270">270</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('271')" id="271">271</a>
+            <a class="button"   onclick="postsomething('272')" id="272">272</a>
+            <a class="button"   onclick="postsomething('273')" id="273">273</a>
+            <a class="button"   onclick="postsomething('274')" id="274">274</a>
+            <a class="button"   onclick="postsomething('275')" id="275">275</a>
+            <a class="button"   onclick="postsomething('276')" id="276">276</a>
+            <a class="button"   onclick="postsomething('277')" id="277">277</a>
+            <a class="button"   onclick="postsomething('278')" id="278">278</a>
+            <a class="button"   onclick="postsomething('279')" id="279">279</a>
+            <a class="button"   onclick="postsomething('280')" id="280">280</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('281')" id="281">281</a>
+            <a class="button"   onclick="postsomething('282')" id="282">282</a>
+            <a class="button"   onclick="postsomething('283')" id="283">283</a>
+            <a class="button"   onclick="postsomething('284')" id="284">284</a>
+            <a class="button"   onclick="postsomething('285')" id="285">285</a>
+            <a class="button"   onclick="postsomething('286')" id="286">286</a>
+            <a class="button"   onclick="postsomething('287')" id="287">287</a>
+            <a class="button"   onclick="postsomething('288')" id="288">288</a>
+            <a class="button"   onclick="postsomething('289')" id="289">289</a>
+            <a class="button"   onclick="postsomething('290')" id="290">290</a>
+
+            <br>
+            
+            <a class="button"   onclick="postsomething('291')" id="291">291</a>
+            <a class="button"   onclick="postsomething('292')" id="292">292</a>
+            <a class="button"   onclick="postsomething('293')" id="293">293</a>
+            <a class="button"   onclick="postsomething('294')" id="294">294</a>
+            <a class="button"   onclick="postsomething('295')" id="295">295</a>
+            <a class="button"   onclick="postsomething('296')" id="296">296</a>
+            <a class="button"   onclick="postsomething('297')" id="297">297</a>
+            <a class="button"   onclick="postsomething('298')" id="298">298</a>
+            <a class="button"   onclick="postsomething('299')" id="299">299</a>
+            <a class="button"   onclick="postsomething('300')" id="300">300</a>
+
+        </div>
+    </body>
+</html>
+
+<script>
+    var button_array="{{button_array}}";
+    for (var k = 1; k　<= 300; k++)
+    {
+        if (button_array[k] == 1)
+        {
+            but = document.getElementById(k.toString());
+            but.innerHTML = "";
+        }
+    }
+</script>
